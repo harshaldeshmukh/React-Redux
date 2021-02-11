@@ -4,10 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//For redux (Wrapper)
+import { createStore } from 'redux';
+import {Provider} from  'react-redux'
+import rootReducer from './Services/Reducers/index'
+const store=createStore(rootReducer);
+console.warn("store "+store)
+//provider kya karega? : Jo redux ka data hoga na vo pure application me flow karega 
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
+  {/* <React.StrictMode> */}
     <App />
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
